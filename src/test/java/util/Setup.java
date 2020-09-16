@@ -6,17 +6,19 @@ import org.junit.BeforeClass;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.springframework.cache.annotation.CacheAnnotationParser;
 
+import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 public class Setup {
 
-    private static final String  PACKAGE ="com.example.android.uamp";
-    //private static final String ENVIRONMENT = "";
-
     protected static AppiumDriver driver;
-    protected static final String APP_ID ="";
+    protected static final String APP_APK ="\\apkfolder\\UAMPMusicPlayerApp.apk";
+    private static final String  PACKAGE = "com.instantappsample.uamp";
+    private static final String ANDROID_PACKAGE ="com.example.android.uamp";
+    protected static final String  APP_ID = PACKAGE+":id/";
+    private static final String PATH = System.getProperty("user.dir");
     protected static final String DEVICE = "LCL7N18428001913 ";
 
     @BeforeClass
@@ -24,11 +26,17 @@ public class Setup {
         DesiredCapabilities capabilities= new DesiredCapabilities();
         capabilities.setCapability("deviceName",DEVICE);
         capabilities.setCapability("platformName","Android");
+
         capabilities.setCapability("appPackage",PACKAGE);
-        capabilities.setCapability("appActivity",PACKAGE + "ui.MusicPlayerActivity");
+        capabilities.setCapability("appActivity",ANDROID_PACKAGE+".ui.MusicPlayerActivity");
+
+
         capabilities.setCapability("noReset",true);
+        capabilities.setCapability("automationName","UiAutomator2");
+        capabilities.setCapability("app",new File(PATH+APP_APK));
 
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"),capabilities);
         //driver.manage().timeouts().implicitlyWait(ge, TimeUnit.SECONDS);
+        //driver.installApp(PATH + "\\apkfolder\\UAMPMusicPlayerApp.apk" );
     }
 }
