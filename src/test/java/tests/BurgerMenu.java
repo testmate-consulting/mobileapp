@@ -1,12 +1,14 @@
 package tests;
 
 import org.junit.Test;
+import org.openqa.selenium.By;
 import util.BaseTest;
 
 public class BurgerMenu extends BaseTest {
 
     @Test
     public void burgerMenuTests(){
+        waitUntilElementIsVisible(240, By.id("title"));
         openMenu();
         viewPlaylists();
         viewAllMusic();

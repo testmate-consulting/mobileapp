@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="tests.Regression" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-09-16T11:08:16" hostname="DESKTOP-50JC91J" time="19.575">
+<testsuite name="tests.Regression" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-09-16T11:43:23" hostname="DESKTOP-50JC91J" time="22.347">
   <properties/>
-  <testcase name="regression" classname="tests.Regression" time="19.575"/>
+  <testcase name="regression" classname="tests.Regression" time="22.347"/>
   <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[Sep 16, 2020 1:08:16 PM io.appium.java_client.remote.AppiumCommandExecutor$1 lambda$0
+  <system-err><![CDATA[Sep 16, 2020 1:43:23 PM io.appium.java_client.remote.AppiumCommandExecutor$1 lambda$0
 INFO: Detected dialect: W3C
 ]]></system-err>
 </testsuite>

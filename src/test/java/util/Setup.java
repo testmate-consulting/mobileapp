@@ -26,17 +26,13 @@ public class Setup {
         DesiredCapabilities capabilities= new DesiredCapabilities();
         capabilities.setCapability("deviceName",DEVICE);
         capabilities.setCapability("platformName","Android");
-
         capabilities.setCapability("appPackage",PACKAGE);
         capabilities.setCapability("appActivity",ANDROID_PACKAGE+".ui.MusicPlayerActivity");
-
-
-        capabilities.setCapability("noReset",true);
+        //capabilities.setCapability("noReset",true);
         capabilities.setCapability("automationName","UiAutomator2");
         capabilities.setCapability("app",new File(PATH+APP_APK));
 
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"),capabilities);
-        //driver.manage().timeouts().implicitlyWait(ge, TimeUnit.SECONDS);
-        //driver.installApp(PATH + "\\apkfolder\\UAMPMusicPlayerApp.apk" );
+
     }
 }

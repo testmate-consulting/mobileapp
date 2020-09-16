@@ -12,12 +12,7 @@ public abstract class BaseTest extends Setup{
         WebDriverWait wait = new WebDriverWait(driver, seconds);
         wait.until(ExpectedConditions.visibilityOfElementLocated(by));
     }
-    protected void waitUntilElementByIdHasText(int seconds, String id, String text) {
-        WebDriverWait wait = new WebDriverWait(driver, seconds);
-        WebElement el = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(id)));
 
-        Assert.assertEquals(text, el.getText());
-    }
     protected WebElement findElementById(String id) {
         WebElement element = driver.findElement(By.id(id));
         return element;
@@ -37,22 +32,18 @@ public abstract class BaseTest extends Setup{
         WebElement element = findElementByIdOrXpath(By.id(APP_ID + id));
         Assert.assertEquals(text,element.getText());
     }
-
     protected void clickElementByTypeAndTex(String widget,String text) {
         String query = "//" + widget + "[@text = '" + text + "']";
         WebElement element = findElementByIdOrXpath(By.xpath(query));
         element.click();
     }
-
     protected void clickElementByTypeAndContentDesc(String widget, String text){
         WebElement element = findElementByIdOrXpath(By.xpath("//" + widget + "[@content-desc = '" + text + "']"));
         element.click();
     }
-
     protected void assertElementByIdDisplayed(String id){
         Assert.assertTrue(findElementById(APP_ID+id).isDisplayed());
     }
-
     protected void navBack(){
         //Navigate to the genre list
         clickElementByTypeAndContentDesc("android.widget.ImageButton","Navigate up");

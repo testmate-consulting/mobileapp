@@ -8,6 +8,7 @@ public class ControlPlayer extends BaseTest {
     public void controlTests(){
         playSong();
         pauseSong();
+        navBack();
     }
     public void playSong(){
         clickElementByTypeAndTex("android.widget.TextView","Cinematic");
